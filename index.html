@@ -70,5 +70,25 @@
     <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a>
     <p>© 2026 Botticelli LLC</p>
   </footer>
+  <script>
+    // Phone bee: straight across at y, a loop near each edge (where there's room), clear of the menu.
+    (function () {
+      var bee = document.querySelector('.bee.b4'), hero = document.querySelector('.hero');
+      function loop(x, y, r) {
+        var k = r * 0.55;
+        return ' L ' + x + ' ' + y +
+          ' C ' + (x + k) + ' ' + y + ', ' + (x + r) + ' ' + (y - r + k) + ', ' + (x + r) + ' ' + (y - r) +
+          ' C ' + (x + r) + ' ' + (y - r - k) + ', ' + (x + k) + ' ' + (y - 2 * r) + ', ' + x + ' ' + (y - 2 * r) +
+          ' C ' + (x - k) + ' ' + (y - 2 * r) + ', ' + (x - r) + ' ' + (y - r - k) + ', ' + (x - r) + ' ' + (y - r) +
+          ' C ' + (x - r) + ' ' + (y - r + k) + ', ' + (x - k) + ' ' + y + ', ' + x + ' ' + y;
+      }
+      function place() {
+        var w = hero.clientWidth, y = 70, r = 20;
+        bee.style.offsetPath = 'path("M -50 ' + y + loop(Math.round(w * 0.2), y, r) + loop(Math.round(w * 0.8), y, r) + ' L ' + (w + 50) + ' ' + y + '")';
+      }
+      place();
+      addEventListener('resize', place);
+    })();
+  </script>
 </body>
 </html>
