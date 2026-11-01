@@ -45,7 +45,17 @@ nav .links a { margin-left: 18px; text-decoration: none; font-weight: 600; font-
   .bee.b1 { offset-path: path("M -80 40 C 200 -10, 400 70, 600 20 S 950 0, 1180 50"); animation: fly 26s linear infinite, bob 1.6s ease-in-out infinite; }
   .bee.b2 { width: 46px; offset-path: path("M 1170 90 C 1060 180, 1090 300, 1010 380 S 1060 480, 1170 540"); animation: fly 22s linear infinite -8s, bob 1.3s ease-in-out infinite; }
   .bee.b3 { width: 40px; offset-path: path("M -70 540 C 60 470, 20 350, 100 260 S 60 140, -70 80"); animation: fly 30s linear infinite -15s, bob 1.9s ease-in-out infinite; }
+  .bee.b4 { display: none; }
 }
+/* Phones and tablets: one bee crosses the band above the artwork with a loop, then rests out of sight */
+@media (max-width: 999px) and (prefers-reduced-motion: no-preference) {
+  .hero { padding-top: 54px; }
+  .bee.b4 { display: block; position: absolute; top: 0; left: 0; width: 36px; height: auto; pointer-events: none;
+            offset-rotate: 0deg; filter: drop-shadow(0 3px 4px rgba(0, 0, 0, .18));
+            offset-path: path("M -60 30 C 40 8, 110 8, 165 28 C 215 46, 236 2, 200 4 C 162 6, 178 52, 236 40 C 330 22, 600 40, 1060 28");
+            animation: hop 16s ease-in-out infinite, bob 1.4s ease-in-out infinite; }
+}
+@keyframes hop { 0% { offset-distance: 0%; } 70%, 100% { offset-distance: 100%; } }
 @keyframes fly { from { offset-distance: 0%; } to { offset-distance: 100%; } }
 @keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -6px; } }
 
