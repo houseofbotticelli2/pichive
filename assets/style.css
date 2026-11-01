@@ -77,3 +77,10 @@ h2 { font-size: clamp(28px, 4vw, 38px); margin: 0 0 10px; text-align: center; }
 
 footer { text-align: center; padding: 40px 20px 60px; color: var(--muted); font-size: 14px; }
 footer a { margin: 0 10px; font-weight: 600; text-decoration: none; }
+
+/* Phones: keep the top menu on one line */
+@media (max-width: 600px) {
+  nav { padding: 14px 16px; }
+  nav .links a { margin-left: 14px; }
+  nav .links .wide { display: none; }
+}
